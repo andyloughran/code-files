@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ChartContainer from '../ChartComponents/ChartContainer';
 
 import RankingFilters from '../Interactions/RankingFilters';
 import Card from '../UI/Card';
@@ -12,6 +13,12 @@ const rankingFilters = [
 
 const Rankings = props => {
   const [activeFilter, setActiveFilter] = useState("satisfaction");
+  const width = 1000;
+  const height = 542;
+  const marginRight = 150;
+  const marginLeft = 110;
+  const innerWidth = width - props.marginLeft- props.marginRight;
+  const innerHeight = height - props.margin.top - props.margin.bottom;
 
   return (
     <Card>
@@ -20,6 +27,11 @@ const Rankings = props => {
         filters={rankingFilters}
         activeFilter={activeFilter}
       />
+      <ChartContainer
+        width={width}
+        height={height}
+        margin={props.margin}
+        ></ChartContainer>
     </Card>
   )
 };
